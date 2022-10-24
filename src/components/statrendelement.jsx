@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import React from 'react';
+import css from "./statistics.module.css";
 
 const StatCard = ({ label, percentage }) => {
   return (
-    <div>
-      <span class="label">{label}</span>
-      <span class="percentage">{percentage}%</span>
+    <div className={css.card}>
+      <span className={css.label}>{label}</span>
+      <span className={css.percentage}>{percentage}%</span>
     </div>
   );
 };
@@ -19,16 +20,16 @@ StatCard.propTypes = {
 export const StatList = ({statsDate}) => {
   // console.log(statsAr)
   return (
-  <div>
+  <ul className={css.list}>
       {statsDate.map(el => (
-        <li class="item" key={el.id}>
+        <li className={css.item} key={el.id}>
           <StatCard
             label={el.label}
             percentage={el.percentage}
              />
         </li>
       ))}
-  </div>
+  </ul>
 );
 };
 
